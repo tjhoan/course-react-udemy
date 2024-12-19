@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export const useFetch = url => {
+const localCache = {};
+
+export const useFetch = (url) => {
   const [state, setstate] = useState({
     data: null,
     isLoading: true,
@@ -10,6 +12,7 @@ export const useFetch = url => {
 
   useEffect(() => {
     getFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   const setLoadingState = () => {
@@ -18,12 +21,25 @@ export const useFetch = url => {
       isLoading: true,
       hasError: false,
       errorMessage: null
-    }); 
+    });
   };
 
   const getFetch = async () => {
+    if (localCache[url]) {
+      console.log("Usando caché");
+      setstate({
+        data: localCache[url],
+        isLoading: false,
+        hasError: false,
+        errorMessage: null
+      });
+      return;
+    }
+
     setLoadingState();
     const resp = await fetch(url);
+
+    await new Promise((resolve) => setTimeout(resolve, 700));
 
     if (!resp.ok) {
       setstate({
@@ -45,6 +61,10 @@ export const useFetch = url => {
       hasError: false,
       errorMessage: null
     });
+    
+    // Manejo del caché
+    localCache[url] = data;
+    console.log("Cache actual:", localCache);
   };
 
   return {
