@@ -8,6 +8,18 @@ button {
   margin-right: 10px;
 }
 
+.custom-input {
+  background-color: #626262;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.custom-input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
 /* Loading */
 
 .loading-container {
