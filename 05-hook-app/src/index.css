@@ -1,7 +1,11 @@
+:root {
+  --main-color: rgb(246, 193, 0);
+}
+
 body {
   padding: 25px;
-  background-color: #414141;
-  color: rgb(201, 201, 201);
+  background-color: #3c3c3b;
+  color: var(--main-color);
 }
 
 button {
