@@ -12,22 +12,25 @@ export default [
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
+        ...globals.jest,
         test: 'readonly',
         expect: 'readonly',
         describe: 'readonly',
-        module: 'readonly',
+        beforeEach: 'readonly',
+        jest: 'readonly',
+        module: 'readonly'
       },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
-        sourceType: 'module',
-      },
+        sourceType: 'module'
+      }
     },
     settings: { react: { version: '18.2' } },
     plugins: {
       react,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      'react-refresh': reactRefresh
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -35,15 +38,8 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      'no-unused-vars': [
-        'warn',
-        { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
-      ],
-      'no-unused-vars': 'off',
-    },
-  },
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'no-unused-vars': 'off'
+    }
+  }
 ];

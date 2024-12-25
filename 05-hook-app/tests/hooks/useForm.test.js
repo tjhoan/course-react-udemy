@@ -30,4 +30,16 @@ describe('Pruebas en el useForm', () => {
     expect(result.current.name).toBe(newName);
     expect(result.current.formState.name).toBe(newName);
   });
+
+  test('Debe de realizar el reset del formulario', () => {
+    const { result } = renderHook(() => useForm(initialForm));
+    const { onResetForm } = result.current;
+
+    act(() => {
+      onResetForm();
+    });
+
+    expect(result.current.name).toBe(initialForm.name);
+    expect(result.current.formState.name).toBe(initialForm.name);
+  });
 });
