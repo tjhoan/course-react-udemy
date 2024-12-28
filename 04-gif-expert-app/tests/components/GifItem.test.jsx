@@ -4,7 +4,7 @@ import { GifItem } from '../../src/components/GifItem';
 const props = {
   title: 'Hola, soy Goku',
   id: 'Gt23ioj23gvhgv43',
-  url: 'https://qweqweqwe.png',
+  url: 'https://qweqweqwe.png'
 };
 
 describe('Pruebas en <GifItem />', () => {

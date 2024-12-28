@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const FirstApp = ({ title, subTitle = 123, arrayNumbers = [1, 2, 3] }) => {
   return (
     <>
-      <h1 data-testid='test-title'>{title}</h1>
+      <h1 data-testid="test-title">{title}</h1>
       <h2>{subTitle}</h2>
       <p>{arrayNumbers.join(' ')}</p>
     </>
@@ -14,7 +14,7 @@ const FirstApp = ({ title, subTitle = 123, arrayNumbers = [1, 2, 3] }) => {
 FirstApp.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
-  arrayNumbers: PropTypes.array,
+  arrayNumbers: PropTypes.array
 };
 
 export { FirstApp };

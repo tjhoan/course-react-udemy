@@ -20,13 +20,13 @@ describe('Pruebas en <GifGrid />', () => {
       {
         id: 'ABC',
         url: 'https://localhost/cualquier/cosa.jpg',
-        title: 'Cualquier cosa',
+        title: 'Cualquier cosa'
       },
       {
         id: '123',
         url: 'https://localhost/cualquier/cosa.jpg',
-        title: 'Cualquier cosa',
-      },
+        title: 'Cualquier cosa'
+      }
     ];
 
     useFetchGifs.mockReturnValue([gifs, false]);

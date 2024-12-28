@@ -8,7 +8,7 @@ export const AddCategory2 = ({ onNewCategory }) => {
     setInputValue(target.value);
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     if (inputValue.trim().length <= 2) return;
     onNewCategory(inputValue.trim());

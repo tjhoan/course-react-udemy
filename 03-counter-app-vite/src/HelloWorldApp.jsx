@@ -1,7 +1,7 @@
 export const HelloWorldApp = () => {
   const getSaludo = (name) => {
     return `Hola ${name}`;
-  }
+  };
 
   return (
     <>
