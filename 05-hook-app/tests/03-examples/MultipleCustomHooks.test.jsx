@@ -1,14 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MultipleCustomHooks } from '../../../src/03-examples/MultipleCustomHooks';
-import { useCounter, useFetch } from '../../../src/hooks';
+import { MultipleCustomHooks } from '../../src/03-examples/MultipleCustomHooks';
+import { useCounter, useFetch } from '../../src/hooks';
 
 // Mockear los hooks personalizados
-jest.mock('../../../src/hooks/useCounter', () => ({
+jest.mock('../../src/hooks/useCounter', () => ({
   useCounter: jest.fn()
 }));
 
-jest.mock('../../../src/hooks/useFetch', () => ({
+jest.mock('../../src/hooks/useFetch', () => ({
   useFetch: jest.fn()
 }));
 
