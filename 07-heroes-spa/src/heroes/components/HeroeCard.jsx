@@ -12,9 +12,13 @@ export const HeroeCard = ({
   const heroImageUrl = `/assets/heroes/${id}.jpg`;
 
   return (
-    <div className="col">
+    <div className="col animate__animated animate__fadeIn">
       <div className="card h-100" style={{ maxWidth: '200px' }}>
-        <img src={heroImageUrl} alt={superhero} className="card-img-top" />
+        <img
+          src={heroImageUrl}
+          alt={superhero}
+          className="card-img-top"
+        />
         <div className="card-body bg-dark text-white">
           <h4 className="card-title mb-3">{superhero}</h4>
           <p className="card-text">{alter_ego}</p>

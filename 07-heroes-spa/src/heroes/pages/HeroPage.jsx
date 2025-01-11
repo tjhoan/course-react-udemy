@@ -1,10 +1,12 @@
+import { useMemo } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
+
 import { getHeroeById } from '../helpers';
 
 export const HeroPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const hero = getHeroeById(id);
+  const hero = useMemo(() => getHeroeById(id), [id]);
 
   if (!hero) {
     return <Navigate to="/marvel" />;
@@ -21,7 +23,7 @@ export const HeroPage = () => {
           <img
             src={`/assets/heroes/${id}.jpg`}
             alt={hero.superhero}
-            className="img-fluid rounded shadow"
+            className="img-fluid rounded shadow animate__animated animate__fadeInLeft"
             style={{ maxHeight: '600px' }}
           />
         </div>

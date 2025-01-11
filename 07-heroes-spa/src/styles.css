@@ -5,3 +5,22 @@
   background-color: #222222;
   color: white;
 }
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 4px;
+}
