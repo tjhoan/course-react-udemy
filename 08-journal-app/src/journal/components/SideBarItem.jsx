@@ -23,7 +23,7 @@ export const SideBarItem = ({ id, title, body, date, imageUrls = [] }) => {
         </ListItemIcon>
         <Grid container>
           <ListItemText primary={newTitle} />
-          <ListItemText secondary={newBody} />
+          <ListItemText secondary={newBody} secondaryTypographyProps={{ color: 'white' }} />
         </Grid>
       </ListItemButton>
     </ListItem>

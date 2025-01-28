@@ -9,6 +9,11 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
     createValidators(); // Crea los validadores iniciales.
   }, [formState]);
 
+  useEffect(() => {
+    setFormState(initialForm); // Reinicia el formulario.
+  }, [initialForm]);
+  
+
   const isFormValid = useMemo(() => { // Se usa useMmeo para evitar renderizados innecesarios.
     for (const formValue of Object.keys(formValidation)) {
       if (formValidation[formValue] !== null) return false; // Example: if (emailValid !== null) return false
