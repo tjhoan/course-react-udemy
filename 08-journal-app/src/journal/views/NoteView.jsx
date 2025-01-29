@@ -2,11 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useMemo, useRef } from 'react';
 
 import { Button, Grid, IconButton, TextField, Typography } from '@mui/material';
-import { SaveOutlined, UploadOutlined } from '@mui/icons-material';
+import { DeleteOutlined, SaveOutlined, UploadOutlined } from '@mui/icons-material';
 import 'sweetalert2/dist/sweetalert2.css';
 import Swal from 'sweetalert2';
 
-import { setActiveNote, startSaveNote } from '../../store/journal/auth';
+import {
+  setActiveNote,
+  startDeletingNote,
+  startSaveNote,
+  startUploadingFiles
+} from '../../store/journal/auth';
 import { ImageGallery } from '../components';
 import { useForm } from '../../hooks';
 
@@ -47,8 +52,25 @@ export const NoteView = () => {
   const onFileInputChange = ({ target }) => {
     if (target.files == 0) return;
 
-    console.log('Subiendo archivos');
-    // dispatch(startUploadingFiles(target.files));
+    dispatch(startUploadingFiles(target.files));
+  };
+
+  const onDelete = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Una vez borrada no se podrá recuperar',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(startDeletingNote());
+        Swal.fire('Borrado', 'Nota eliminada correctamente', 'success');
+      }
+    });
   };
 
   return (
@@ -122,7 +144,13 @@ export const NoteView = () => {
           }}
         />
       </Grid>
-      <ImageGallery />
+      <Grid container justifyContent="end">
+        <Button onClick={onDelete} sx={{ mt: 2 }} color="error">
+          <DeleteOutlined />
+          Borrar
+        </Button>
+      </Grid>
+      <ImageGallery images={note.imageUrls} />
     </Grid>
   );
 };

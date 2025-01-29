@@ -16,7 +16,7 @@ export const JournalPage = () => {
   };
 
   return (
-    <JournalLayout>
+    <JournalLayout >
       {active ? <NoteView /> : <NothingSelectedView />}
 
       <IconButton

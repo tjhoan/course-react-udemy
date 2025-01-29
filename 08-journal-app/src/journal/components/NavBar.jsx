@@ -1,8 +1,10 @@
-import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
-import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
-import { startLogout } from '../../store/auth/thunks';
 import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
+
+import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
+
+import { startLogout } from '../../store/auth/thunks';
 
 export const NavBar = ({ drawerWidth }) => {
   const dispatch = useDispatch();

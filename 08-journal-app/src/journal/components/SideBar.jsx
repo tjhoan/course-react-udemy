@@ -18,7 +18,7 @@ export const SideBar = ({ drawerWidth }) => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            backgroundColor: '#222'}
+            backgroundColor: '#232323'}
         }}
       >
         <Toolbar>

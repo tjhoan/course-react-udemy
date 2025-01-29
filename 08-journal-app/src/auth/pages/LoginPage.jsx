@@ -57,8 +57,8 @@ export const LoginPage = () => {
               name="email"
               value={email}
               onChange={onInputChange}
-              error={emailValid && formSubmitted}
               helperText={emailValid}
+              error={emailValid && formSubmitted}
             ></TextField>
           </Grid>
           <Grid item xs={12} sx={{ mt: 1 }}>
@@ -70,8 +70,8 @@ export const LoginPage = () => {
               name="password"
               value={password}
               onChange={onInputChange}
-              error={passwordValid && formSubmitted}
               helperText={passwordValid}
+              error={passwordValid && formSubmitted}
             ></TextField>
           </Grid>
           <Grid item xs={12} sx={{ mt: 1 }} display={errorMessage ? '' : 'none'}>

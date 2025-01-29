@@ -3,11 +3,14 @@ import { PropTypes } from 'prop-types';
 
 import { SideBar, NavBar } from '../components';
 
-const drawerWidth = 240;
+const drawerWidth = 230;
 
 export const JournalLayout = ({ children }) => {
   return (
-    <Box sx={{ display: 'flex', backgroundColor: '#222' }} className="animate__animated animate__fadeIn animate__faster">
+    <Box
+      sx={{ display: 'flex', backgroundColor: '#252525' }}
+      className="animate__animated animate__fadeIn animate__faster"
+    >
       <NavBar drawerWidth={drawerWidth} />
       <SideBar drawerWidth={drawerWidth} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

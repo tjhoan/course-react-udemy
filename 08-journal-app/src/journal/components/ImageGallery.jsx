@@ -1,7 +1,6 @@
 import { ImageList, ImageListItem, useMediaQuery } from '@mui/material';
-import { itemData } from '../../data/itemData';
 
-export const ImageGallery = () => {
+export const ImageGallery = ({images = []}) => {
   const isExtraSmallScreen = useMediaQuery('(max-width:700px)');
   const isSmallScreen = useMediaQuery('(max-width:850px)');
   const isMediumScreen = useMediaQuery('(max-width:100px)');
@@ -19,11 +18,11 @@ export const ImageGallery = () => {
 
   return (
     <ImageList sx={{ width: '100%', height: '100%' }} variant="masonry" cols={cols} gap={4}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
+      {images.map((image) => (
+        <ImageListItem key={image}>
           <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={item.title}
+            src={`${image}?w=164&h=164&fit=crop&auto=format`}
+            alt={image}
             loading="lazy"
             style={{
               borderRadius: 5,
